@@ -1,6 +1,15 @@
 # EasyVote
 Voting For Rust Servers new GH Page
 
+Sites included:
+
+rust-servers.net
+rustservers.gg
+bestservers.com
+
+You can easily add new API's from the config files.
+
+
 ORIGINAL CREDITS
 
 Calytic, for adding beancan.io support helping with the config reading

@@ -15,7 +15,7 @@ TheExel80 for bringing this plugin together and supporting it until recently
 
 
 
-More Credits towards SheepHW for including RustServers.gg API as native support
+More Credits towards SheepRW for including RustServers.gg API as native support
 
 
 

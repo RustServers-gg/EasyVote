@@ -16,3 +16,9 @@ TheExel80 for bringing this plugin together and supporting it until recently
 
 
 More Credits towards SheepHW for including RustServers.gg API as native support
+
+
+
+MAINTAINERS
+
+@ Raul-Sorin Sorban at codefling.com to check and verify the fairness of the plugin and not cherrypicking one site over the other

@@ -393,8 +393,14 @@ namespace Oxide.Plugins
                 }
 
             }
+
             if (_config.Settings[PluginSettings.GlobalChatAnnouncments]?.ToLower() == "true")
-                PrintToChat($"{_lang("GlobalChatAnnouncments", player.UserIDString, player.displayName, voted)}");
+            {
+                foreach (var p in BasePlayer.activePlayerList)
+                {
+                    Chat(p, $"{_lang("GlobalChatAnnouncments", p.UserIDString, p.displayName, voted)}");
+                }
+            }
 
             // Send message to discord text channel.
             if (_config.Discord[PluginSettings.DiscordEnabled].ToLower() == "true")
@@ -789,7 +795,7 @@ namespace Oxide.Plugins
             {
                 if (kvp.Key.ToLower() == "first")
                 {
-                    rewardList.Append(_lang("RewardListFirstTime", null)).AppendLine();
+                    rewardList.Append(_lang("RewardListFirstTime", player.UserIDString)).AppendLine();
 
                     var valueList = String.Join(Environment.NewLine, kvp.Value.ToArray());
                     rewardList.Append(valueList).AppendLine();
@@ -798,7 +804,7 @@ namespace Oxide.Plugins
 
                 if (kvp.Key == "@")
                 {
-                    rewardList.Append(_lang("RewardListEverytime", null)).AppendLine();
+                    rewardList.Append(_lang("RewardListEverytime", player.UserIDString)).AppendLine();
 
                     var valueList = String.Join(Environment.NewLine, kvp.Value.ToArray());
                     rewardList.Append(valueList).AppendLine();
@@ -816,7 +822,7 @@ namespace Oxide.Plugins
 
                         continue;
                     }
-                    rewardList.Append(_lang("RewardList", null, voteNumber)).AppendLine();
+                    rewardList.Append(_lang("RewardList", player.UserIDString, voteNumber)).AppendLine();
 
                     var valueList = String.Join(Environment.NewLine, kvp.Value.ToArray());
                     rewardList.Append(valueList).AppendLine();
@@ -838,7 +844,8 @@ namespace Oxide.Plugins
                         continue;
                     }
 
-                    rewardList.Append(_lang("RewardList", null, voteNumber)).AppendLine();
+                    rewardList.Append(_lang("RewardList", player.UserIDString, voteNumber)).AppendLine();
+
                     var valueList = String.Join(Environment.NewLine, kvp.Value.ToArray());
                     rewardList.Append(valueList).AppendLine();
                 }
@@ -994,6 +1001,16 @@ namespace Oxide.Plugins
                 }
             }
             return output;
+        }
+        
+        // Output : int() Vote;
+        private int getPlayerVotes(string steamID)
+        {
+            int voted = 0;
+            if (_storedData.Players.ContainsKey(steamID))
+                voted = _storedData.Players[steamID].voted;
+
+            return voted;
         }
 
         // Output : string() UserID;

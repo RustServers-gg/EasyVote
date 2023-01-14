@@ -13,12 +13,13 @@ using Oxide.Core.Libraries.Covalence;
 namespace Oxide.Plugins
 {
 
+    //Fixes by dfxphoenix
     //Added RustServers.gg API by SheepRW
     //Removed rust-servers.info API Hyper
     //Colour change, added rust-servers.info API, removed Beancan API by MikeHawke
     //Removed Resource ID by MikeHawke
     //Added BestServers.com by MikeHawke
-    [Info("EasyVote", "Exel80", "2.0.44")]
+    [Info("EasyVote", "Exel80", "2.0.45")]
     [Description("Simple and smooth voting start by activating one script.")]
     class EasyVote : RustPlugin
     {

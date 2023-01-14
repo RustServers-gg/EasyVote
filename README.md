@@ -4,7 +4,9 @@ Voting For Rust Servers new GH Page
 New Updates:
 
 Added API for get player votes
+
 Fixed Some translations bugfixes
+
 Fixed Broadcast translation
 
 
